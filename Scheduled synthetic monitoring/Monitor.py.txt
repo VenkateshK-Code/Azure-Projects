@@ -1,0 +1,18 @@
+import requests
+import sys
+
+URL = "http://<APP-IP-OR-DNS>:8080/health"   # change this
+
+def check_api(url):
+    try:
+        response = requests.get(url, timeout=5)
+        return response.status_code == 200
+    except:
+        return False
+
+if check_api(URL):
+    print("✅ Application is healthy")
+    sys.exit(0)   # pipeline success
+else:
+    print("❌ Application is DOWN")
+    sys.exit(1)   # pipeline failure

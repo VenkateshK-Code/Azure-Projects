@@ -1,0 +1,17 @@
+With a single PowerShell command, you can generate a clean report of all user accounts that haven't logged on in the last 90 days. No more guesswork.
+
+🎯 \*\*Here's the game plan:\*\*
+🔹 Use the `Search-ADAccount` cmdlet—it's fast and built for this exact task.
+🔹 Target specific OUs to avoid accidentally flagging critical service accounts.
+🔹 Always export to a CSV for review \*before\* taking any action like disabling accounts.
+
+💻 \*\*PowerShell One-Liner:\*\*
+```powershell
+# Find inactive users \(no logon in 90 days\) and export to CSV
+Search-ADAccount -AccountInactive -TimeSpan 90.00:00:00 -UsersOnly \| Select-Object Name, SamAccountName, LastLogonDate \| Export-Csv -Path C:\Temp\InactiveUsers.csv -NoTypeInformation
+```
+
+✅ \*\*The Payoff:\*\*
+✅ Save hours of manual work each quarter.
+✅ Harden your security posture by removing old access.
+✅ Keep your Active Directory clean and audit-ready.

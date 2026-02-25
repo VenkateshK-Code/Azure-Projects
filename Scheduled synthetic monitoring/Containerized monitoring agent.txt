@@ -1,0 +1,6 @@
+- task: Docker@2
+  inputs:
+    containerRegistry: 'myACR'
+    repository: 'service-monitor'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'

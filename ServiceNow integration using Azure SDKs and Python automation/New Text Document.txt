@@ -1,0 +1,10 @@
+[Azure Resource/Event] 
+       │
+       ▼
+[Python Automation Script using Azure SDK]
+       │
+       ▼
+[REST API Call to ServiceNow]
+       │
+       ▼
+[Incident/Change/Update in ServiceNow]
